@@ -28,4 +28,3 @@ CREATE TABLE allstar (
 select * from salary
 select * from stats
 select * from allstar
-
