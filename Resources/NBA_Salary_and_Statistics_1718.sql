@@ -24,7 +24,18 @@ CREATE TABLE allstar (
 	team VARCHAR(100)	
 );
 
+CREATE TABLE team_stats (
+	id SERIAL,
+	Team VARCHAR(100),
+	W INT,
+	L INT,
+	PSG FLOAT,
+	PAG FLOAT,
+	SRS FLOAT
+);
+
 -- Query to check successful load
 select * from salary
 select * from stats
 select * from allstar
+select * from team_stats
