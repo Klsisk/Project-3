@@ -3,20 +3,20 @@ import sqlalchemy
 from sqlalchemy.ext.automap import automap_base
 from sqlalchemy.orm import Session
 from sqlalchemy import create_engine, func
-from flask import Flask, jsonify
+from flask import Flask, jsonify, render_template
 #################################################
 # Database Setup
 #################################################
 engine = create_engine('postgresql://postgres:kkhpjk00@localhost/NBA')
 conn=engine.connect()
 print(conn.execute("SELECT * from salary"))
-# reflect an existing database into a new model
+
+# Reflect an existing database into a new model
 Base = automap_base()
-# reflect the tables
+
+# Reflect the tables
 Base.prepare(engine, reflect=True)
-# # Save reference to the table
-# allstar = Base.classes.allstar
-# salary=Base.classes.salary
+
 #################################################
 # Flask Setup
 #################################################
@@ -34,6 +34,7 @@ def welcome():
         f"/api/v1.0/resultstosalary<br/>"
         f"/api/v1.0/bangforbuck"
     )
+    return render_template('index.html')
 @app.route("/api/v1.0/teamsalary")
 def teamsalary():
     engine = create_engine('postgresql://postgres:kkhpjk00@localhost/NBA')
@@ -51,6 +52,7 @@ def teamsalary():
         teamsalary_dict["salary"] = float(salary)
         teamsalary.append(teamsalary_dict)
     return jsonify(teamsalary)
+
 @app.route("/api/v1.0/salary")
 def salary():
     all_salary = []
@@ -113,5 +115,6 @@ group by stats.player
         print(bangforbuck_dict)
         bangforbuck_list.append(bangforbuck_dict)
     return jsonify(bangforbuck_list)
+    
 if __name__ == '__main__':
     app.run(debug=True)

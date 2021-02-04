@@ -1,0 +1,31 @@
+id,Team,W,L,W/L%,GB,PS/G,PA/G,SRS
+1,Atlanta Hawks,24,58,0.293,35,103.4,108.8,-5
+2,Boston Celtics,55,27,0.671,4,104,100.4,3.23
+3,Brooklyn Nets,28,54,0.341,31,106.6,110.3,-3.67
+4,Charlotte Hornets,36,46,0.439,23,108.2,108,0.07
+5,Chicago Bulls,27,55,0.329,32,102.9,110,-6.84
+6,Cleveland Cavaliers,50,32,0.61,9,110.9,109.9,0.59
+7,Dallas Mavericks,24,58,0.293,41,102.3,105.4,-2.7
+8,Denver Nuggets,46,36,0.561,19,110,108.5,1.57
+9,Detroit Pistons,39,43,0.476,20,103.8,103.9,-0.26
+10,Golden State Warriors,58,24,0.707,7,113.5,107.5,5.79
+11,Houston Rockets,65,17,0.793,—,112.4,103.9,8.21
+12,Indiana Pacers,48,34,0.585,11,105.6,104.2,1.18
+13,Los Angeles Clippers,42,40,0.512,23,109,109,0.15
+14,Los Angeles Lakers,35,47,0.427,30,108.1,109.6,-1.44
+15,Memphis Grizzlies,22,60,0.268,43,99.3,105.5,-5.81
+16,Miami Heat,44,38,0.537,15,103.4,102.9,0.15
+17,Milwaukee Bucks,44,38,0.537,15,106.5,106.8,-0.45
+18,Minnesota Timberwolves,47,35,0.573,18,109.5,107.3,2.35
+19,New Orleans Pelicans,48,34,0.585,17,111.7,110.4,1.48
+20,New York Knicks,29,53,0.354,30,104.5,108,-3.53
+21,Oklahoma City Thunder,48,34,0.585,17,107.9,104.4,3.42
+22,Orlando Magic,25,57,0.305,34,103.4,108.2,-4.92
+23,Philadelphia 76ers,52,30,0.634,7,109.8,105.3,4.3
+24,Phoenix Suns,21,61,0.256,44,103,,
+25,Portland Trail Blazers,49,33,0.598,16,105.6,103,2.6
+26,Sacramento Kings,27,55,0.329,38,98.8,105.8,-6.6
+27,San Antonio Spurs,47,35,0.573,18,102.7,99.8,2.89
+28,Toronto Raptors,59,23,0.72,—,111.7,103.9,7.29
+29,Utah Jazz,48,34,0.585,17,104.1,99.8,4.47
+30,Washington Wizards,43,39,0.524,16,106.6,106,0.53
