@@ -34,7 +34,8 @@ def welcome():
         f"/api/v1.0/resultstosalary<br/>"
         f"/api/v1.0/bangforbuck"
     )
-    return render_template('index.html')
+    return render_template("index.html")
+    
 @app.route("/api/v1.0/teamsalary")
 def teamsalary():
     engine = create_engine('postgresql://postgres:kkhpjk00@localhost/NBA')
@@ -115,6 +116,6 @@ group by stats.player
         print(bangforbuck_dict)
         bangforbuck_list.append(bangforbuck_dict)
     return jsonify(bangforbuck_list)
-    
+
 if __name__ == '__main__':
     app.run(debug=True)
