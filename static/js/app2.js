@@ -156,24 +156,17 @@ function updateToolTip(chosenXAxis, chosenYAxis, circlesGroup, circleText) {
 
 // Text tooltip in chart
 // Retrieve data from the CSV file and execute everything below
-//d3.csv("assets/data/stats.csv").then(function (NBAData, err) {
-d3.json("http://127.0.0.1:5000/api/v1.0/bangforbuck").then(function (NBAData, err) {
-    if (err) throw err;
-    let url = 'http://127.0.0.1:5000/';
-    fetch(url, { 
-      method: 'GET',
-      headers:{
-        'Access-Control-Allow-Origin': '*',
-        'Access-Control-Allow-Credentials':true,
-        'Access-Control-Allow-Methods':'POST, GET'
-      }
-    }).then(response => response.json)
+d3.csv("/Users/kimkockenmeister/Desktop/Bootcamp/project3/Project-3/static/data/stats.csv").then(function (NBAData, err) {
+//d3.json("http://127.0.0.1:5000/api/v1.0/bangforbuck").then(function (NBAData, err) {
+  //  if (err) throw err;
+
     // console.log(NBAData.map(x => x['points_per_game']));
     // parse data
     NBAData.forEach(function (stats) {
-        stats.salary= +stats.salary;
+        stats.age= +stats.age;
         stats.points_per_game = stats.points_per_game;
-        stats.bangforbuck = +stats.bangforbuck;
+        stats.games_started = +stats.games_started;
+        stats.minutes_played= +stats.minutes_played;
     });
 
     // Create xLinearScale and yLinearScale function
@@ -229,7 +222,15 @@ d3.json("http://127.0.0.1:5000/api/v1.0/bangforbuck").then(function (NBAData, er
         .attr("value", "salary") // value to grab for event listener
         .classed("active", true)
         .text("Salary");
-
+    var gamesStartedLabel = xLabelsGroup.append("text")
+        .attr("transform", "rotate(-90)")
+        .attr("x", 250)
+        .attr("y", -485)
+        .attr("dy", "1em")
+        .attr("value", "games_started") // value to grab for event listener
+        .classed("axis-text", true)
+        .classed("inactive", true)
+        .text("Games Started");
     // Create group for three y-axis labels
     var yLabelsGroup = chartGroup.append("g")
         .attr("transform", `translate(${width / 2}, ${height + 20})`);
@@ -244,16 +245,16 @@ d3.json("http://127.0.0.1:5000/api/v1.0/bangforbuck").then(function (NBAData, er
         .classed("active", true)
         .text("Points per Game");
 
-    var bangForBuckLabel = yLabelsGroup.append("text")
+    var minutesPlayedLabel = yLabelsGroup.append("text")
         .attr("transform", "rotate(-90)")
         .attr("x", 250)
         .attr("y", -485)
         .attr("dy", "1em")
-        .attr("value", "bangforbuck") // value to grab for event listener
+        .attr("value", "minutes_played") // value to grab for event listener
         .classed("axis-text", true)
         .classed("inactive", true)
-        .text("Money Spent For Each Point Scored");
-
+        .text("Minutes Played");
+    
     // updateToolTip function above csv import
     var circlesGroup = updateToolTip(chosenXAxis, chosenYAxis, circlesGroup, circleText);
 
@@ -288,11 +289,17 @@ d3.json("http://127.0.0.1:5000/api/v1.0/bangforbuck").then(function (NBAData, er
                     salaryLabel
                         .classed("active", true)
                         .classed("inactive", false);
+                    gamesStartedLabel
+                        .classed("active", false)
+                        .classed("inactive", true);
                 }
                 else {
                     salaryLabel
                         .classed("active", false)
                         .classed("inactive", true);
+                    gamesStartedLabel
+                        .classed("active", true)
+                        .classed("inactive", false);
                 }
             }
         });
@@ -328,7 +335,7 @@ d3.json("http://127.0.0.1:5000/api/v1.0/bangforbuck").then(function (NBAData, er
                     pointsPerGameLabel
                         .classed("active", true)
                         .classed("inactive", false);
-                    bangForBuckLabel
+                    minutesPlayedLabel
                         .classed("active", false)
                         .classed("inactive", true);
                 }
@@ -336,7 +343,7 @@ d3.json("http://127.0.0.1:5000/api/v1.0/bangforbuck").then(function (NBAData, er
                     pointsPerGameLabel
                         .classed("active", false)
                         .classed("inactive", true);
-                    bangForBuckLabel
+                    minutesPlayedLabel
                         .classed("active", true)
                         .classed("inactive", false);
                 }
