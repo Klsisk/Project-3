@@ -46,8 +46,8 @@ function xScale(NBAData, chosenXAxis) {
 
     // Create scales
     var xLinearScale = d3.scaleLinear()
-        .domain([d3.min(NBAData, d => d[chosenXAxis]) * 0.8,
-        d3.max(NBAData, d => d[chosenXAxis]) * 1.2
+        .domain([d3.min(NBAData, d => d[chosenXAxis]) ,
+        d3.max(NBAData, d => d[chosenXAxis]) 
         ])
         .range([0, width]);
 
@@ -60,8 +60,8 @@ function yScale(NBAData, chosenYAxis) {
 
     // Create scales
     var yLinearScale = d3.scaleLinear()
-        .domain([d3.min(NBAData, d => d[chosenYAxis]) * 0.8,
-        d3.max(NBAData, d => d[chosenYAxis]) * 1.2
+        .domain([d3.min(NBAData, d => d[chosenYAxis]) ,
+        d3.max(NBAData, d => d[chosenYAxis]) 
         ])
         .range([height, 0]);
 
@@ -128,7 +128,7 @@ function updateToolTip(chosenXAxis, chosenYAxis, circlesGroup, circleText) {
     var yLabel;
 
     if (chosenYAxis === "points_per_game") {
-        yLabel = "Points per Game:";
+        yLabel = "Points per Game:" ;
     }
     else {
         yLabel = "Money Spent For Each Point Scored";
@@ -142,7 +142,7 @@ function updateToolTip(chosenXAxis, chosenYAxis, circlesGroup, circleText) {
     //     });
 
     // // Circles tooltip in chart
-    // //circlesGroup.call(toolTip);
+  circlesGroup.call(toolTip);
     // svg.call(toolTip);
     var toolTip2 = toolTip.html(function (d) {
         return (`${d.player}<br>${xLabel} ${d[chosenXAxis]}<br>${yLabel} ${d['points_per_game']}`);
@@ -386,4 +386,5 @@ d3.json("http://127.0.0.1:5000/api/v1.0/bangforbuck").then(function (NBAData, er
 }).catch(function (error) {
     console.log(error);
 });
+
 //
