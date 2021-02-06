@@ -1,33 +1,33 @@
-// var svgWidth = 960;
-// var svgHeight = 500;
+var svgWidth = 960;
+var svgHeight = 500;
 
-// var margin = {
-//     top: 20,
-//     right: 40,
-//     bottom: 80,
-//     left: 100
-// };
+var margin = {
+    top: 20,
+    right: 40,
+    bottom: 80,
+    left: 100
+};
 
-// var width = svgWidth - margin.left - margin.right;
-// var height = svgHeight - margin.top - margin.bottom;
+var width = svgWidth - margin.left - margin.right;
+var height = svgHeight - margin.top - margin.bottom;
 
 // // Create an SVG wrapper, append an SVG group that will hold our chart,
 // // and shift the latter by left and top margins.
-// var chart = d3.select("#scatter")
-//     .append('div')
-//     .classed('chart', true);
+var chart = d3.select("#scatter")
+    .append('div')
+    .classed('chart', true);
 
-// var svg = chart.append("svg")
-//     .attr("width", svgWidth)
-//     .attr("height", svgHeight);
+var svg = chart.append("svg")
+    .attr("width", svgWidth)
+    .attr("height", svgHeight);
 
 // // Append an SVG group
-// var chartGroup = svg.append("g")
-//     .attr("transform", `translate(${margin.left}, ${margin.top})`);
+var chartGroup = svg.append("g")
+    .attr("transform", `translate(${margin.left}, ${margin.top})`);
 
 // // Initial Params
-// var chosenXAxis = "age";
-// var chosenYAxis = "points_per_game";
+var chosenXAxis = "age";
+var chosenYAxis = "points_per_game";
 
 // Function used for updating x-scale var upon click on axis label
 function xScale(NBAData, chosenXAxis) {
@@ -162,36 +162,36 @@ function updateToolTip(chosenXAxis, chosenYAxis, circlesGroup, circleText) {
 //})
 
 d3.json("http://127.0.0.1:5000/api/v1.0/bangforbuck").then(function (NBAData, err) {
-    var svgWidth = 960;
-    var svgHeight = 500;
+    // var svgWidth = 960;
+    // var svgHeight = 500;
 
-    var margin = {
-        top: 20,
-        right: 40,
-        bottom: 80,
-        left: 100
-    };
+    // var margin = {
+    //     top: 20,
+    //     right: 40,
+    //     bottom: 80,
+    //     left: 100
+    // };
 
-    var width = svgWidth - margin.left - margin.right;
-    var height = svgHeight - margin.top - margin.bottom;
+    // var width = svgWidth - margin.left - margin.right;
+    // var height = svgHeight - margin.top - margin.bottom;
 
-    // Create an SVG wrapper, append an SVG group that will hold our chart,
-    // and shift the latter by left and top margins.
-    var chart = d3.select("#scatter")
-        .append('div')
-        .classed('chart', true);
+    // // Create an SVG wrapper, append an SVG group that will hold our chart,
+    // // and shift the latter by left and top margins.
+    // var chart = d3.select("#scatter")
+    //     .append('div')
+    //     .classed('chart', true);
 
-    var svg = chart.append("svg")
-        .attr("width", svgWidth)
-        .attr("height", svgHeight);
+    // var svg = chart.append("svg")
+    //     .attr("width", svgWidth)
+    //     .attr("height", svgHeight);
 
-    // Append an SVG group
-    var chartGroup = svg.append("g")
-        .attr("transform", `translate(${margin.left}, ${margin.top})`);
+    // // Append an SVG group
+    // var chartGroup = svg.append("g")
+    //     .attr("transform", `translate(${margin.left}, ${margin.top})`);
 
-    // Initial Params
-    var chosenXAxis = "salary";
-    var chosenYAxis = "points_per_game";
+    // // Initial Params
+    // var chosenXAxis = "salary";
+    // var chosenYAxis = "points_per_game";
 
     console.log(NBAData.map(x => x['points_per_game']));
     // parse data
