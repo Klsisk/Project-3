@@ -1,33 +1,33 @@
-var svgWidth = 960;
-var svgHeight = 500;
+// var svgWidth = 960;
+// var svgHeight = 500;
 
-var margin = {
-    top: 20,
-    right: 40,
-    bottom: 80,
-    left: 100
-};
+// var margin = {
+//     top: 20,
+//     right: 40,
+//     bottom: 80,
+//     left: 100
+// };
 
-var width = svgWidth - margin.left - margin.right;
-var height = svgHeight - margin.top - margin.bottom;
+// var width = svgWidth - margin.left - margin.right;
+// var height = svgHeight - margin.top - margin.bottom;
 
-// Create an SVG wrapper, append an SVG group that will hold our chart,
-// and shift the latter by left and top margins.
-var chart = d3.select("#scatter")
-    .append('div')
-    .classed('chart', true);
+// // Create an SVG wrapper, append an SVG group that will hold our chart,
+// // and shift the latter by left and top margins.
+// var chart = d3.select("#scatter")
+//     .append('div')
+//     .classed('chart', true);
 
-var svg = chart.append("svg")
-    .attr("width", svgWidth)
-    .attr("height", svgHeight);
+// var svg = chart.append("svg")
+//     .attr("width", svgWidth)
+//     .attr("height", svgHeight);
 
-// Append an SVG group
-var chartGroup = svg.append("g")
-    .attr("transform", `translate(${margin.left}, ${margin.top})`);
+// // Append an SVG group
+// var chartGroup = svg.append("g")
+//     .attr("transform", `translate(${margin.left}, ${margin.top})`);
 
-// Initial Params
-var chosenXAxis = "age";
-var chosenYAxis = "points_per_game";
+// // Initial Params
+// var chosenXAxis = "age";
+// var chosenYAxis = "points_per_game";
 
 // Function used for updating x-scale var upon click on axis label
 function xScale(NBAData, chosenXAxis) {
@@ -156,197 +156,218 @@ function updateToolTip(chosenXAxis, chosenYAxis, circlesGroup, circleText) {
 
 // Text tooltip in chart
 // Retrieve data from postgreSQL and execute everything below
-d3.json("http://127.0.0.1:5000/api/v1.0/bangforbuck").then(function (NBAData, err) {
-        console.log('[d3 json] bangforbuck data fetch working!');
-        console.log(NBAData);
-})
-
 // d3.json("http://127.0.0.1:5000/api/v1.0/bangforbuck").then(function (NBAData, err) {
-    // if (err) throw err;
-    // let url = 'http://127.0.0.1:5000/';
-    // fetch(url, { 
-    //   method: 'GET',
-    //   headers:{
-        // 'Access-Control-Allow-Origin': '*',
-        // 'Access-Control-Allow-Credentials':true,
-        // 'Access-Control-Allow-Methods':'POST, GET'
-    //   }
-    // }).then(response => response.json)
-    // console.log(NBAData.map(x => x['points_per_game']));
+//         console.log('[d3 json] bangforbuck data fetch working!');
+//         console.log(NBAData);
+//})
+
+d3.json("http://127.0.0.1:5000/api/v1.0/bangforbuck").then(function (NBAData, err) {
+    var svgWidth = 960;
+    var svgHeight = 500;
+
+    var margin = {
+        top: 20,
+        right: 40,
+        bottom: 80,
+        left: 100
+    };
+
+    var width = svgWidth - margin.left - margin.right;
+    var height = svgHeight - margin.top - margin.bottom;
+
+    // Create an SVG wrapper, append an SVG group that will hold our chart,
+    // and shift the latter by left and top margins.
+    var chart = d3.select("#scatter")
+        .append('div')
+        .classed('chart', true);
+
+    var svg = chart.append("svg")
+        .attr("width", svgWidth)
+        .attr("height", svgHeight);
+
+    // Append an SVG group
+    var chartGroup = svg.append("g")
+        .attr("transform", `translate(${margin.left}, ${margin.top})`);
+
+    // Initial Params
+    var chosenXAxis = "salary";
+    var chosenYAxis = "points_per_game";
+
+    console.log(NBAData.map(x => x['points_per_game']));
     // parse data
-    // NBAData.forEach(function (stats) {
-        // stats.salary= +stats.salary;
-        // stats.points_per_game = stats.points_per_game;
-        // stats.bangforbuck = +stats.bangforbuck;
-    // });
-// 
+    NBAData.forEach(function (stats) {
+        stats.salary = +stats.salary;
+        stats.points_per_game = stats.points_per_game;
+        stats.bangforbuck = +stats.bangforbuck;
+    });
+    // 
     //Create xLinearScale and yLinearScale function
-    // var xLinearScale = xScale(NBAData, chosenXAxis);
-    // var yLinearScale = yScale(NBAData, chosenYAxis);
+    var xLinearScale = xScale(NBAData, chosenXAxis);
+    var yLinearScale = yScale(NBAData, chosenYAxis);
 
     // Create initial axis functions
-    // var bottomAxis = d3.axisBottom(xLinearScale);
-    // var leftAxis = d3.axisLeft(yLinearScale);
+    var bottomAxis = d3.axisBottom(xLinearScale);
+    var leftAxis = d3.axisLeft(yLinearScale);
 
     // Append the x axis
-    // var xAxis = chartGroup.append("g")
-        // .classed("x-axis", true)
-        // .attr("transform", `translate(0, ${height})`)
-        // .call(bottomAxis);
+    var xAxis = chartGroup.append("g")
+        .classed("x-axis", true)
+        .attr("transform", `translate(0, ${height})`)
+        .call(bottomAxis);
 
     //Append the y axis
-    // var yAxis = chartGroup.append("g")
-        // .classed("y-axis", true)
-        // .call(leftAxis);
+    var yAxis = chartGroup.append("g")
+        .classed("y-axis", true)
+        .call(leftAxis);
 
     //Create and then append initial circles
-    // var circlesGroup = chartGroup.selectAll(".playerCircle")
-        // .data(NBAData)
-        // .enter()
-        // .append("circle")
-        // .attr("class", "playerCircle")
-        // .attr("cx", d => xLinearScale(d[chosenXAxis]))
-        // .attr("cy", d => yLinearScale(d[chosenYAxis]))
-        // .attr("r", 15)
-        // .attr("opacity", ".75");
+    var circlesGroup = chartGroup.selectAll(".playerCircle")
+        .data(NBAData)
+        .enter()
+        .append("circle")
+        .attr("class", "playerCircle")
+        .attr("cx", d => xLinearScale(d[chosenXAxis]))
+        .attr("cy", d => yLinearScale(d[chosenYAxis]))
+        .attr("r", 15)
+        .attr("opacity", ".75");
 
     // Create a group for the text in circles
-    // var circleText = chartGroup.selectAll(".playerText")
-        // .data(NBAData)
-        // .enter()
-        // .append("text")
-        // .attr("class", "playerText")
-        // .attr("x", d => xLinearScale(d[chosenXAxis]))
-        // .attr("y", d => yLinearScale(d[chosenYAxis] * .98))
-        // .attr("font-size", "12px")
-        // .attr("dy", ".3em")
-        // .style("font-weight", "bold")
-        // .text(function (d) { return d.abbr });
+    var circleText = chartGroup.selectAll(".playerText")
+        .data(NBAData)
+        .enter()
+        .append("text")
+        .attr("class", "playerText")
+        .attr("x", d => xLinearScale(d[chosenXAxis]))
+        .attr("y", d => yLinearScale(d[chosenYAxis] * .98))
+        .attr("font-size", "12px")
+        .attr("dy", ".3em")
+        .style("font-weight", "bold")
+        .text(function (d) { return d.abbr });
 
     //Create group for three x-axis labels
-    // var xLabelsGroup = chartGroup.append("g")
-        // .attr("transform", `translate(${width / 2}, ${height + 20})`);
+    var xLabelsGroup = chartGroup.append("g")
+        .attr("transform", `translate(${width / 2}, ${height + 20})`);
 
-    // var salaryLabel = xLabelsGroup.append("text")
-        // .attr("x", 0)
-        // .attr("y", 20)
-        // .attr("value", "salary") // value to grab for event listener
-        // .classed("active", true)
-        // .text("Salary");
+    var salaryLabel = xLabelsGroup.append("text")
+        .attr("x", 0)
+        .attr("y", 20)
+        .attr("value", "salary") // value to grab for event listener
+        .classed("active", true)
+        .text("Salary");
 
     //Create group for three y-axis labels
-    // var yLabelsGroup = chartGroup.append("g")
-        // .attr("transform", `translate(${width / 2}, ${height + 20})`);
+    var yLabelsGroup = chartGroup.append("g")
+        .attr("transform", `translate(${width / 2}, ${height + 20})`);
 
-    // var pointsPerGameLabel = yLabelsGroup.append("text")
-        // .attr("transform", "rotate(-90)")
-        // .attr("x", 250)
-        // .attr("y", -465)
-        // .attr("dy", "1em")
-        // .attr("value", "points_per_game") // value to grab for event listener
-        // .classed("axis-text", true)
-        // .classed("active", true)
-        // .text("Points per Game");
+    var pointsPerGameLabel = yLabelsGroup.append("text")
+        .attr("transform", "rotate(-90)")
+        .attr("x", 250)
+        .attr("y", -465)
+        .attr("dy", "1em")
+        .attr("value", "points_per_game") // value to grab for event listener
+        .classed("axis-text", true)
+        .classed("active", true)
+        .text("Points per Game");
 
-    // var bangForBuckLabel = yLabelsGroup.append("text")
-        // .attr("transform", "rotate(-90)")
-        // .attr("x", 250)
-        // .attr("y", -485)
-        // .attr("dy", "1em")
-        // .attr("value", "bangforbuck") // value to grab for event listener
-        // .classed("axis-text", true)
-        // .classed("inactive", true)
-        // .text("Money Spent For Each Point Scored");
+    var bangForBuckLabel = yLabelsGroup.append("text")
+        .attr("transform", "rotate(-90)")
+        .attr("x", 250)
+        .attr("y", -485)
+        .attr("dy", "1em")
+        .attr("value", "bangforbuck") // value to grab for event listener
+        .classed("axis-text", true)
+        .classed("inactive", true)
+        .text("Money Spent For Each Point Scored");
 
     // updateToolTip function above csv import
-    //var circlesGroup = updateToolTip(chosenXAxis, chosenYAxis, circlesGroup, circleText);
+    var circlesGroup = updateToolTip(chosenXAxis, chosenYAxis, circlesGroup, circleText);
 
     // X axis labels event listener
-    // xLabelsGroup.selectAll("text")
-        // .on("click", function () {
+    xLabelsGroup.selectAll("text")
+        .on("click", function () {
 
             //Get value of selection
-            // var value = d3.select(this).attr("value");
-            // if (value !== chosenXAxis) {
+            var value = d3.select(this).attr("value");
+            if (value !== chosenXAxis) {
 
                 //Replace chosenXAxis with value
-                // chosenXAxis = value;
+                chosenXAxis = value;
 
                 //Updates x scale for new data
-                // xLinearScale = xScale(NBAData, chosenXAxis);
+                xLinearScale = xScale(NBAData, chosenXAxis);
 
                 // Update x axis with transition
-                //xAxis = renderXAxes(xLinearScale, xAxis);
+                xAxis = renderXAxes(xLinearScale, xAxis);
 
                 // Update circles with new values
-                // circlesGroup = renderCircles(circlesGroup, xLinearScale, chosenXAxis, yLinearScale, chosenYAxis);
+                circlesGroup = renderCircles(circlesGroup, xLinearScale, chosenXAxis, yLinearScale, chosenYAxis);
 
                 // Update text with new values
-                //circleText = renderText(circleText, xLinearScale, chosenXAxis, yLinearScale, chosenYAxis);
+                circleText = renderText(circleText, xLinearScale, chosenXAxis, yLinearScale, chosenYAxis);
 
                 // Update tooltips with new info
-                // circlesGroup = updateToolTip(chosenXAxis, chosenYAxis, circlesGroup, circleText);
+                circlesGroup = updateToolTip(chosenXAxis, chosenYAxis, circlesGroup, circleText);
 
                 // Changes classes to change bold text for x axis
-                // if (chosenXAxis === "salary") {
-                    // salaryLabel
-                        // .classed("active", true)
-                        // .classed("inactive", false);
-                // }
-                // else {
-                    // salaryLabel
-                        // .classed("active", false)
-                        // .classed("inactive", true);
-                // }
-            //}
-        //});
+                if (chosenXAxis === "salary") {
+                    salaryLabel
+                        .classed("active", true)
+                        .classed("inactive", false);
+                }
+                else {
+                    salaryLabel
+                        .classed("active", false)
+                        .classed("inactive", true);
+                }
+            }
+        });
 
     // Y axis labels event listener
-    //yLabelsGroup.selectAll("text")
-        // .on("click", function () {
+    yLabelsGroup.selectAll("text")
+        .on("click", function () {
 
             //Get value of selection
-            // var value = d3.select(this).attr("value");
-            // if (value !== chosenYAxis) {
+            var value = d3.select(this).attr("value");
+            if (value !== chosenYAxis) {
 
                 //Replace chosenYAxis with value
-                // chosenYAxis = value;
+                chosenYAxis = value;
 
                 //Updates y scale for new data
-                // yLinearScale = yScale(NBAData, chosenYAxis);
+                yLinearScale = yScale(NBAData, chosenYAxis);
 
                 // Update y axis with transition
-                //yAxis = renderYAxes(yLinearScale, yAxis);
+                yAxis = renderYAxes(yLinearScale, yAxis);
 
                 // Update circles with new x values
-                //circlesGroup = renderCircles(circlesGroup, xLinearScale, chosenXAxis, yLinearScale, chosenYAxis);
+                circlesGroup = renderCircles(circlesGroup, xLinearScale, chosenXAxis, yLinearScale, chosenYAxis);
 
                 // Update text with new values
-                //circleText = renderText(circleText, xLinearScale, chosenXAxis, yLinearScale, chosenYAxis);
+                circleText = renderText(circleText, xLinearScale, chosenXAxis, yLinearScale, chosenYAxis);
 
                 // Update tooltips with new info
-                // circlesGroup = updateToolTip(chosenXAxis, circlesGroup, chosenYAxis, circleText);
+                circlesGroup = updateToolTip(chosenXAxis, circlesGroup, chosenYAxis, circleText);
 
                 // Changes classes to change bold text for y axis
-                //if (chosenYAxis === "points_per_game") {
-                    // pointsPerGameLabel
-                        // .classed("active", true)
-                        // .classed("inactive", false);
-                    // bangForBuckLabel
-                        // .classed("active", false)
-                        // .classed("inactive", true);
-                //}
-                // else {
-                    // pointsPerGameLabel
-                        // .classed("active", false)
-                        // .classed("inactive", true);
-                    // bangForBuckLabel
-                        // .classed("active", true)
-                        // .classed("inactive", false);
-                //}
-            //}
-        //});
-// }).catch(function (error) {
-    // console.log(error);
-// });
-// 
+                if (chosenYAxis === "points_per_game") {
+                    pointsPerGameLabel
+                        .classed("active", true)
+                        .classed("inactive", false);
+                    bangForBuckLabel
+                        .classed("active", false)
+                        .classed("inactive", true);
+                }
+                else {
+                    pointsPerGameLabel
+                        .classed("active", false)
+                        .classed("inactive", true);
+                    bangForBuckLabel
+                        .classed("active", true)
+                        .classed("inactive", false);
+                }
+            }
+        });
+}).catch(function (error) {
+    console.log(error);
+});
+//
