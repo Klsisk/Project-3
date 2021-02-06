@@ -1,7 +1,5 @@
 # Project-3
 
-## [See Project 3 Results](https://klsisk.github.io/Project-3/)
-
 ![image](https://user-images.githubusercontent.com/69765842/107110486-3a343000-6816-11eb-9a65-7897821b7e5c.png)
 
 We as a group are looking at four NBA data sets that have data ranging from players, teams, salaries, and statistics. We are hoping to use this data to formulate different trends among the NBA. We are focusing on the 2017-2018 season. We are looking to determine repeated factors among successful NBA players and their teams.  These factors could include such things as salary, points per game, bang for buck, and all-star appearance.
