@@ -5,7 +5,7 @@ var margin = {
     top: 20,
     right: 40,
     bottom: 80,
-    left: 100
+    left: 150
 };
 
 var width = svgWidth - margin.left - margin.right;
@@ -21,12 +21,24 @@ var svg = chart.append("svg")
     .attr("width", svgWidth)
     .attr("height", svgHeight);
 
+// var toolTip = d3.tip()
+//     .attr("class", "tooltip d3-tip")
+//     .offset([80, 80])
+//     .html(function (d) {
+//         return (`${d.player}<br>${xLabel} ${d[chosenXAxis]}<br>${yLabel} ${d['points_per_game']}`);
+//     });
+var toolTip = d3.tip()
+   .attr("class", "tooltip d3-tip")
+   .offset([80, 80]);
+// Circles tooltip in chart
+//circlesGroup.call(toolTip);
+svg.call(toolTip);
 // // Append an SVG group
 var chartGroup = svg.append("g")
     .attr("transform", `translate(${margin.left}, ${margin.top})`);
 
 // // Initial Params
-var chosenXAxis = "age";
+var chosenXAxis = "salary";
 var chosenYAxis = "points_per_game";
 
 // Function used for updating x-scale var upon click on axis label
@@ -106,12 +118,12 @@ function renderText(circleText, newXScale, chosenXAxis, newYScale, chosenYAxis) 
 function updateToolTip(chosenXAxis, chosenYAxis, circlesGroup, circleText) {
     var xLabel;
 
-    if (chosenXAxis === "age") {
-        xLabel = "Age:";
+    if (chosenXAxis === "salary") {
+        xLabel = "Salary:";
     }
-    else {
-        xLabel = "Games Started:";
-    }
+    // else {
+    //     xLabel = "Games Started:";
+    // }
 
     var yLabel;
 
@@ -119,18 +131,22 @@ function updateToolTip(chosenXAxis, chosenYAxis, circlesGroup, circleText) {
         yLabel = "Points per Game:";
     }
     else {
-        yLabel = "Minutes Played:";
+        yLabel = "Money Spent For Each Point Scored";
     }
 
-    var toolTip = d3.tip()
-        .attr("class", "tooltip d3-tip")
-        .offset([80, 80])
-        .html(function (d) {
-            return (`${d.player}<br>${xLabel} ${d[chosenXAxis]}<br>${yLabel} ${d['points_per_game']}`);
-        });
+    // var toolTip = d3.tip()
+    //     .attr("class", "tooltip d3-tip")
+    //     .offset([80, 80])
+    //     .html(function (d) {
+    //         return (`${d.player}<br>${xLabel} ${d[chosenXAxis]}<br>${yLabel} ${d['points_per_game']}`);
+    //     });
 
-    // Circles tooltip in chart
-    circlesGroup.call(toolTip);
+    // // Circles tooltip in chart
+    // //circlesGroup.call(toolTip);
+    // svg.call(toolTip);
+    var toolTip2 = toolTip.html(function (d) {
+        return (`${d.player}<br>${xLabel} ${d[chosenXAxis]}<br>${yLabel} ${d['points_per_game']}`);
+    });
 
     circlesGroup.on("mouseover", function (stats) {
         toolTip.show(stats, this);
