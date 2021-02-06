@@ -1,0 +1,21 @@
+SELECT player, team, sum(salary)
+    FROM public.salary
+   group by player, team
+
+
+SELECT team, sum(salray) as "Total Salary Paid"
+	FROM public.salary
+	group by team
+
+
+
+SELECT  s.team, t.win, t.loss, sum(s.salary)
+	FROM public.salary s, team_stats t
+	where s.team = t.team
+	group by s.team, t.win, t.loss
+	order by s.team
+
+
+select stats.player, sum(salary.salary), sum(stats.points_per_game), sum(salary.salary)/avg(stats.points_per_game) as "bang for buck"
+from stats, salary where stats.player = salary.player and stats.points_per_game > 0
+group by stats.player
