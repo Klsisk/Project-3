@@ -142,29 +142,32 @@ function updateToolTip(chosenXAxis, chosenYAxis, circlesGroup, circleText) {
     //     });
 
     // // Circles tooltip in chart
-  circlesGroup.call(toolTip);
-    // svg.call(toolTip);
     var toolTip2 = toolTip.html(function (d) {
         return (`${d.player}<br>${xLabel} ${d[chosenXAxis]}<br>${yLabel} ${d['points_per_game']}`);
     });
+  circlesGroup.call(toolTip2);
+    // svg.call(toolTip);
+    // var toolTip2 = toolTip.html(function (d) {
+    //     return (`${d.player}<br>${xLabel} ${d[chosenXAxis]}<br>${yLabel} ${d['points_per_game']}`);
+    // });
 
     circlesGroup.on("mouseover", function (stats) {
-        toolTip.show(stats, this);
+        toolTip2.show(stats, this);
     })
         // .on(mouseout) event
         .on("mouseout", function (stats, index) {
-            toolTip.hide(stats);
+            toolTip2.hide(stats);
         });
 
     // Text tooltip in chart
-    circleText.call(toolTip);
+    circleText.call(toolTip2);
 
     circleText.on("mouseover", function (stats) {
-        toolTip.show(stats, this);
+        toolTip2.show(stats, this);
     })
         // .on(mouseout) event
         .on("mouseout", function (stats, index) {
-            toolTip.hide(stats);
+            toolTip2.hide(stats);
         });
 
     return circlesGroup;
@@ -178,36 +181,6 @@ function updateToolTip(chosenXAxis, chosenYAxis, circlesGroup, circleText) {
 //})
 
 d3.json("http://127.0.0.1:5000/api/v1.0/bangforbuck").then(function (NBAData, err) {
-    // var svgWidth = 960;
-    // var svgHeight = 500;
-
-    // var margin = {
-    //     top: 20,
-    //     right: 40,
-    //     bottom: 80,
-    //     left: 100
-    // };
-
-    // var width = svgWidth - margin.left - margin.right;
-    // var height = svgHeight - margin.top - margin.bottom;
-
-    // // Create an SVG wrapper, append an SVG group that will hold our chart,
-    // // and shift the latter by left and top margins.
-    // var chart = d3.select("#scatter")
-    //     .append('div')
-    //     .classed('chart', true);
-
-    // var svg = chart.append("svg")
-    //     .attr("width", svgWidth)
-    //     .attr("height", svgHeight);
-
-    // // Append an SVG group
-    // var chartGroup = svg.append("g")
-    //     .attr("transform", `translate(${margin.left}, ${margin.top})`);
-
-    // // Initial Params
-    // var chosenXAxis = "salary";
-    // var chosenYAxis = "points_per_game";
 
     console.log(NBAData.map(x => x['points_per_game']));
     // parse data
@@ -365,24 +338,59 @@ d3.json("http://127.0.0.1:5000/api/v1.0/bangforbuck").then(function (NBAData, er
                 circlesGroup = updateToolTip(chosenXAxis, circlesGroup, chosenYAxis, circleText);
 
                 // Changes classes to change bold text for y axis
-                if (chosenYAxis === "points_per_game") {
+                // if (chosenYAxis === "points_per_game") {
+                //     pointsPerGameLabel
+                //         .classed("active", true)
+                //         .classed("inactive", false);
+                //     bangForBuckLabel
+                //         .classed("active", false)
+                //         .classed("inactive", true);
+                // }
+                // else {
                     pointsPerGameLabel
-                        .classed("active", true)
-                        .classed("inactive", false);
-                    bangForBuckLabel
                         .classed("active", false)
                         .classed("inactive", true);
-                }
-                else {
-                    pointsPerGameLabel
-                        .classed("active", false)
-                        .classed("inactive", true);
                     bangForBuckLabel
                         .classed("active", true)
                         .classed("inactive", false);
-                }
+                // }
             }
-        });
+            else{
+                //Updates y scale for new data
+                yLinearScale = yScale(NBAData, chosenYAxis);
+
+                // Update y axis with transition
+                yAxis = renderYAxes(yLinearScale, yAxis);
+
+                // Update circles with new x values
+                circlesGroup = renderCircles(circlesGroup, xLinearScale, chosenXAxis, yLinearScale, chosenYAxis);
+
+                // Update text with new values
+                circleText = renderText(circleText, xLinearScale, chosenXAxis, yLinearScale, chosenYAxis);
+
+                // Update tooltips with new info
+                circlesGroup = updateToolTip(chosenXAxis, circlesGroup, chosenYAxis, circleText);
+
+                // Changes classes to change bold text for y axis
+                 //chosenYAxis === "points_per_game" {
+                    pointsPerGameLabel
+                        .classed("active", true)
+                        .classed("inactive", false);
+                    bangForBuckLabel
+                        .classed("active", false)
+                        .classed("inactive", true);
+                //}
+            //     else {
+            //         pointsPerGameLabel
+            //             .classed("active", false)
+            //             .classed("inactive", true);
+            //         bangForBuckLabel
+            //             .classed("active", true)
+            //             .classed("inactive", false);
+            //     }
+            // }
+            
+        }});//);
 }).catch(function (error) {
     console.log(error);
 });
