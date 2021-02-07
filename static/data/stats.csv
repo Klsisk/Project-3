@@ -1,5 +1,5 @@
 id,player,age,team,total_games,games_started,minutes_played,points_per_game
-1,Ãlex Abrines,24,OKC,75,8,15.1,4.7s
+1,Álex Abrines,24,OKC,75,8,15.1,4.7
 2,Quincy Acy,27,BRK,70,8,19.4,5.9
 3,Steven Adams,24,OKC,76,76,32.7,13.9
 4,Bam Adebayo,20,MIA,69,19,19.8,6.9
@@ -21,9 +21,9 @@ id,player,age,team,total_games,games_started,minutes_played,points_per_game
 20,Trevor Ariza,32,HOU,67,67,33.9,11.7
 21,Darrell Arthur,29,DEN,19,1,7.4,2.8
 22,Jamel Artis,25,ORL,15,1,18.6,5.1
-23,Ã–mer AÅŸÄ±k,31,TOT,18,0,10.1,1.2
-24,Ã–mer AÅŸÄ±k,31,NOP,14,0,8.6,1.3
-25,Ã–mer AÅŸÄ±k,31,CHI,4,0,15.3,1
+23,Ömer Aşık,31,TOT,18,0,10.1,1.2
+24,Ömer Aşık,31,NOP,14,0,8.6,1.3
+25,Ömer Aşık,31,CHI,4,0,15.3,1
 26,D.J. Augustin,30,ORL,75,36,23.5,10.2
 27,Luke Babbitt,28,TOT,50,14,14.3,5.2
 28,Luke Babbitt,28,ATL,37,9,15.4,6.1
@@ -48,7 +48,7 @@ id,player,age,team,total_games,games_started,minutes_played,points_per_game
 47,Jordan Bell,23,GSW,57,13,14.2,4.6
 48,DeAndre' Bembry,23,ATL,26,3,17.5,5.2
 49,Dragan Bender,20,PHO,82,37,25.2,6.5
-50,DÄvis BertÄns,25,SAS,77,10,14.1,5.926
+50,Dāvis Bertāns,25,SAS,77,10,14.1,5.9
 51,Patrick Beverley,29,LAC,11,11,30.4,12.2
 52,Khem Birch,25,ORL,42,0,13.8,4.2
 53,Jabari Bird,23,BOS,13,1,8.8,3
@@ -60,8 +60,8 @@ id,player,age,team,total_games,games_started,minutes_played,points_per_game
 59,Eric Bledsoe,28,PHO,3,3,27.7,15.7
 60,Eric Bledsoe,28,MIL,71,71,31.5,17.8
 61,Vander Blue,25,LAL,5,0,9,0.6
-62,Bogdan BogdanoviÄ‡,25,SAC,78,53,27.9,11.8
-63,Bojan BogdanoviÄ‡,28,IND,80,80,30.8,14.3
+62,Bogdan Bogdanović,25,SAC,78,53,27.9,11.8
+63,Bojan Bogdanović,28,IND,80,80,30.8,14.3
 64,Andrew Bogut,33,LAL,24,5,9,1.5
 65,Joel Bolomboy,24,MIL,6,0,6.3,1.5
 66,Devin Booker,21,PHO,54,54,34.5,24.9
@@ -87,7 +87,7 @@ id,player,age,team,total_games,games_started,minutes_played,points_per_game
 86,Lorenzo Brown,27,TOR,14,0,9.9,2.3
 87,Markel Brown,26,HOU,4,0,7.8,1.3
 88,Sterling Brown,22,MIL,54,4,14.4,4
-89,NicolÃ¡s Brussino,24,ATL,4,0,2.5,0
+89,Nicolás Brussino,24,ATL,4,0,2.5,0
 90,Thomas Bryant,20,LAL,15,0,4.8,1.5
 91,Reggie Bullock,26,DET,62,52,27.9,11.3
 92,Trey Burke,25,NYK,36,9,21.8,12.8
@@ -97,7 +97,7 @@ id,player,age,team,total_games,games_started,minutes_played,points_per_game
 96,Bruno Caboclo,22,TOT,12,0,8.9,2.2
 97,Bruno Caboclo,22,TOR,2,0,3.5,0
 98,Bruno Caboclo,22,SAC,10,0,10,2.6
-99,JosÃ© CalderÃ³n,36,CLE,57,32,16,4.5
+99,José Calderón,36,CLE,57,32,16,4.5
 100,Kentavious Caldwell-Pope,24,LAL,74,74,33.2,13.4
 101,Isaiah Canaan,26,TOT,20,1,21.1,8.6
 102,Isaiah Canaan,26,HOU,1,0,4,0
@@ -163,7 +163,7 @@ id,player,age,team,total_games,games_started,minutes_played,points_per_game
 162,Damyean Dotson,23,NYK,44,2,10.8,4.1
 163,Milton Doyle,24,BRK,10,0,12.5,3.4
 164,PJ Dozier,21,OKC,2,0,1.5,1
-165,Goran DragiÄ‡,31,MIA,75,75,31.7,17.3
+165,Goran Dragić,31,MIA,75,75,31.7,17.3
 166,Larry Drew II,27,TOT,10,0,7,1.7
 167,Larry Drew II,27,PHI,3,0,5,0.7
 168,Larry Drew II,27,NOP,7,0,7.9,2.1
@@ -190,7 +190,7 @@ id,player,age,team,total_games,games_started,minutes_played,points_per_game
 189,Kay Felder,22,TOT,16,0,8.8,3.6
 190,Kay Felder,22,CHI,14,0,9.6,3.9
 191,Kay Felder,22,DET,2,0,3,1
-192,Cristiano FelÃ­cio,25,CHI,55,16,17.8,5.6
+192,Cristiano Felício,25,CHI,55,16,17.8,5.6
 193,Raymond Felton,33,OKC,82,2,16.6,6.9
 194,Terrance Ferguson,19,OKC,61,12,12.5,3.1
 195,Yogi Ferrell,24,DAL,82,21,27.8,10.2
@@ -212,7 +212,7 @@ id,player,age,team,total_games,games_started,minutes_played,points_per_game
 211,Marcus Georges-Hunt,23,MIN,42,0,5.3,1.4
 212,Jonathan Gibson,30,BOS,4,0,10,8.5
 213,Taj Gibson,32,MIN,82,82,33.2,12.2
-214,Manu GinÃ³bili,40,SAS,65,0,20,8.9
+214,Manu Ginóbili,40,SAS,65,0,20,8.9
 215,Rudy Gobert,25,UTA,56,56,32.4,13.5
 216,Aaron Gordon,22,ORL,58,57,32.9,17.6
 217,Eric Gordon,29,HOU,69,30,31.2,18
@@ -255,14 +255,14 @@ id,player,age,team,total_games,games_started,minutes_played,points_per_game
 254,Reggie Hearn,26,DET,3,0,2.3,1
 255,Myke Henry,25,MEM,20,0,18.9,5.4
 256,John Henson,27,MIL,76,69,25.9,8.8
-257,Juan HernangÃ³mez,22,DEN,25,3,11.1,3.3
-258,Willy HernangÃ³mez,23,TOT,48,1,10.3,5.1
-259,Willy HernangÃ³mez,23,NYK,26,0,9,4.3
-260,Willy HernangÃ³mez,23,CHO,22,1,11.9,6.1
+257,Juan Hernangómez,22,DEN,25,3,11.1,3.3
+258,Willy Hernangómez,23,TOT,48,1,10.3,5.1
+259,Willy Hernangómez,23,NYK,26,0,9,4.3
+260,Willy Hernangómez,23,CHO,22,1,11.9,6.1
 261,Mario Hezonja,22,ORL,75,30,22.1,9.6
 262,Isaiah Hicks,23,NYK,18,0,13.3,4.4
 263,Buddy Hield,25,SAC,80,12,25.3,13.5
-264,NenÃª,35,HOU,52,4,14.6,6.5
+264,Nenê,35,HOU,52,4,14.6,6.5
 265,George Hill,31,TOT,67,60,27,10
 266,George Hill,31,SAC,43,36,26.6,10.3
 267,George Hill,31,CLE,24,24,27.9,9.4
@@ -285,9 +285,9 @@ id,player,age,team,total_games,games_started,minutes_played,points_per_game
 284,Vince Hunter,23,MEM,4,0,1.8,1.5
 285,Serge Ibaka,28,TOR,76,76,27.5,12.6
 286,Andre Iguodala,34,GSW,64,7,25.3,6
-287,Ersan Ä°lyasova,30,TOT,69,43,25.1,10.9
-288,Ersan Ä°lyasova,30,ATL,46,40,25.5,10.9
-289,Ersan Ä°lyasova,30,PHI,23,3,24.1,10.8
+287,Ersan İlyasova,30,TOT,69,43,25.1,10.9
+288,Ersan İlyasova,30,ATL,46,40,25.5,10.9
+289,Ersan İlyasova,30,PHI,23,3,24.1,10.8
 290,Joe Ingles,30,UTA,82,81,31.4,11.5
 291,Andre Ingram,32,LAL,2,0,32,12
 292,Brandon Ingram,20,LAL,59,59,33.5,16.1
@@ -323,7 +323,7 @@ id,player,age,team,total_games,games_started,minutes_played,points_per_game
 322,Stanley Johnson,21,DET,69,50,27.4,8.7
 323,Tyler Johnson,25,MIA,72,39,28.5,11.7
 324,Wesley Johnson,30,LAC,74,40,20.1,5.4
-325,Nikola JokiÄ‡,22,DEN,75,73,32.6,18.5
+325,Nikola Jokić,22,DEN,75,73,32.6,18.5
 326,Damian Jones,22,GSW,15,0,5.9,1.7
 327,Derrick Jones Jr.,20,TOT,20,8,12.3,3.1
 328,Derrick Jones Jr.,20,PHO,6,0,5.5,1.5
@@ -350,7 +350,7 @@ id,player,age,team,total_games,games_started,minutes_played,points_per_game
 349,Kosta Koufos,28,SAC,71,13,19.6,6.7
 350,Kyle Kuzma,22,LAL,77,37,31.2,16.1
 351,Mindaugas Kuzminskas,28,NYK,1,0,2,0
-352,Skal LabissiÃ¨re,21,SAC,60,28,20.7,8.7
+352,Skal Labissière,21,SAC,60,28,20.7,8.7
 353,Jeremy Lamb,25,CHO,80,18,24.6,12.9
 354,Shane Larkin,25,BOS,54,2,14.4,4.3
 355,Joffrey Lauvergne,26,SAS,55,1,9.7,4.1
@@ -376,16 +376,16 @@ id,player,age,team,total_games,games_started,minutes_played,points_per_game
 375,Robin Lopez,29,CHI,64,64,26.4,11.8
 376,Kevin Love,29,CLE,59,59,28,17.6
 377,Kyle Lowry,31,TOR,78,78,32.2,16.2
-378,TimothÃ© Luwawu-Cabarrot,22,PHI,52,7,15.5,5.8
+378,Timothé Luwawu-Cabarrot,22,PHI,52,7,15.5,5.8
 379,Tyler Lydon,21,DEN,1,0,2,0
 380,Trey Lyles,22,DEN,73,2,19.1,9.9
 381,Shelvin Mack,27,ORL,69,3,19.8,6.9
 382,Josh Magette,28,ATL,18,0,12,2.6
 383,Ian Mahinmi,31,WAS,77,0,14.9,4.8
 384,Thon Maker,20,MIL,74,12,16.7,4.8
-385,Boban MarjanoviÄ‡,29,TOT,39,1,8.6,6
-386,Boban MarjanoviÄ‡,29,DET,19,1,9,6.2
-387,Boban MarjanoviÄ‡,29,LAC,20,0,8.3,5.9
+385,Boban Marjanović,29,TOT,39,1,8.6,6
+386,Boban Marjanović,29,DET,19,1,9,6.2
+387,Boban Marjanović,29,LAC,20,0,8.3,5.9
 388,Lauri Markkanen,20,CHI,68,68,29.7,15.2
 389,Jarell Martin,23,MEM,73,36,22.8,7.7
 390,Frank Mason III,23,SAC,52,2,18.9,7.9
@@ -416,9 +416,9 @@ id,player,age,team,total_games,games_started,minutes_played,points_per_game
 415,Malcolm Miller,24,TOR,15,4,8.4,2.5
 416,Patty Mills,29,SAS,82,36,25.7,10
 417,Paul Millsap,32,DEN,38,37,30.1,14.6
-418,Nikola MirotiÄ‡,26,TOT,55,14,27.2,15.6
-419,Nikola MirotiÄ‡,26,CHI,25,3,24.9,16.8
-420,Nikola MirotiÄ‡,26,NOP,30,11,29.1,14.6
+418,Nikola Mirotić,26,TOT,55,14,27.2,15.6
+419,Nikola Mirotić,26,CHI,25,3,24.9,16.8
+420,Nikola Mirotić,26,NOP,30,11,29.1,14.6
 421,Donovan Mitchell,21,UTA,79,71,33.4,20.5
 422,Naz Mitrou-Long,24,UTA,1,0,1,3
 423,Malik Monk,19,CHO,63,0,13.6,6.7
@@ -461,7 +461,7 @@ id,player,age,team,total_games,games_started,minutes_played,points_per_game
 460,Lucas Nogueira,25,TOR,49,3,8.5,2.5
 461,Dirk Nowitzki,39,DAL,77,77,24.7,12
 462,Frank Ntilikina,19,NYK,78,9,21.9,5.9
-463,Jusuf NurkiÄ‡,23,POR,79,79,26.4,14.3
+463,Jusuf Nurkić,23,POR,79,79,26.4,14.3
 464,David Nwaba,25,CHI,70,21,23.5,7.9
 465,Johnny O'Bryant,24,CHO,36,0,10.5,4.8
 466,Royce O'Neale,24,UTA,69,4,16.7,5
@@ -506,7 +506,7 @@ id,player,age,team,total_games,games_started,minutes_played,points_per_game
 505,Quincy Pondexter,29,CHI,23,1,8.5,2
 506,Otto Porter,24,WAS,77,77,31.6,14.7
 507,Bobby Portis,22,CHI,73,4,22.5,13.2
-508,Kristaps PorziÅ†Ä£is,22,NYK,48,48,32.4,22.7
+508,Kristaps Porziņģis,22,NYK,48,48,32.4,22.7
 509,Dwight Powell,26,DAL,79,25,21.2,8.5
 510,Norman Powell,24,TOR,70,18,15.2,5.5
 511,Alex Poythress,24,IND,25,0,4.2,1
@@ -541,9 +541,9 @@ id,player,age,team,total_games,games_started,minutes_played,points_per_game
 540,D'Angelo Russell,21,BRK,48,35,25.7,15.5
 541,Domantas Sabonis,21,IND,74,19,24.5,11.6
 542,JaKarr Sampson,24,SAC,22,6,15.6,4.7
-543,Dario Å ariÄ‡,23,PHI,78,73,29.6,14.6
-544,TomÃ¡Å¡ SatoranskÃ½,26,WAS,73,30,22.5,7.2
-545,Dennis SchrÃ¶der,24,ATL,67,67,31,19.4
+543,Dario Šarić,23,PHI,78,73,29.6,14.6
+544,Tomáš Satoranský,26,WAS,73,30,22.5,7.2
+545,Dennis Schröder,24,ATL,67,67,31,19.4
 546,Mike Scott,29,WAS,76,1,18.5,8.8
 547,Thabo Sefolosha,33,UTA,38,6,21.2,8.2
 548,Wayne Selden,23,MEM,35,9,19.8,9.3
@@ -577,9 +577,9 @@ id,player,age,team,total_games,games_started,minutes_played,points_per_game
 576,Isaiah Taylor,23,ATL,67,9,17.4,6.6
 577,Jeff Teague,29,MIN,70,70,33,14.2
 578,Marquis Teague,24,MEM,3,0,24.7,3.7
-579,Mirza TeletoviÄ‡,32,MIL,10,0,15.9,7.1
+579,Mirza Teletović,32,MIL,10,0,15.9,7.1
 580,Garrett Temple,31,SAC,65,35,24.8,8.4
-581,MiloÅ¡ TeodosiÄ‡,30,LAC,45,36,25.2,9.5
+581,Miloš Teodosić,30,LAC,45,36,25.2,9.5
 582,Jason Terry,40,MIL,51,4,16,3.3
 583,Daniel Theis,25,BOS,63,3,14.9,5.3
 584,Isaiah Thomas,28,TOT,32,15,26.9,15.2
@@ -596,7 +596,7 @@ id,player,age,team,total_games,games_started,minutes_played,points_per_game
 595,Myles Turner,21,IND,65,62,28.2,12.7
 596,Ekpe Udoh,30,UTA,63,3,12.9,2.6
 597,Tyler Ulis,22,PHO,71,43,23.4,7.8
-598,Jonas ValanÄiÅ«nas,25,TOR,77,77,22.4,12.7.
+598,Jonas Valančiūnas,25,TOR,77,77,22.4,12.7
 599,Denzel Valentine,24,CHI,77,37,27.2,10.2
 600,Fred VanVleet,23,TOR,76,0,20,8.6
 601,Rashad Vaughn,21,TOT,28,0,7.6,2.3
@@ -606,7 +606,7 @@ id,player,age,team,total_games,games_started,minutes_played,points_per_game
 605,Noah Vonleh,22,TOT,54,16,16.2,4.9
 606,Noah Vonleh,22,POR,33,12,14.4,3.6
 607,Noah Vonleh,22,CHI,21,4,19,6.9
-608,Nikola VuÄeviÄ‡,27,ORL,57,57,29.5,16.52
+608,Nikola Vučević,27,ORL,57,57,29.5,16.5
 609,Dwyane Wade,36,TOT,67,3,22.9,11.4
 610,Dwyane Wade,36,CLE,46,3,23.2,11.2
 611,Dwyane Wade,36,MIA,21,0,22.2,12
@@ -661,5 +661,5 @@ id,player,age,team,total_games,games_started,minutes_played,points_per_game
 660,Tyler Zeller,28,BRK,42,33,16.7,7.1
 661,Tyler Zeller,28,MIL,24,1,16.9,5.9
 662,Paul Zipser,23,CHI,54,12,15.3,4
-663,Ante Å½iÅ¾iÄ‡,21,CLE,32,2,6.7,3.7
+663,Ante Žižić,21,CLE,32,2,6.7,3.7
 664,Ivica Zubac,20,LAL,43,0,9.5,3.7
