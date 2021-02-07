@@ -102,16 +102,19 @@ def bangforbuck():
     conn=engine.connect()
     query4="""
 
-select stats.player, sum(salary.salary), sum(stats.points_per_game), sum(salary.salary)/sum(stats.points_per_game) as "bangforbuck"
+select stats.player, salary.salary, stats.points_per_game, ROUND(stats.total_games * stats.points_per_game)
+as "totalpoints", ROUND(salary.salary/stats.points_per_game) as "bangforbuck"
 from stats, salary where stats.player = salary.player and stats.points_per_game > 0
-group by stats.player
+group by stats.player, salary.salary, stats.points_per_game, totalpoints, bangforbuck
+order by stats.player;
 """
     results=conn.execute(query4)
-    for player,salary,points_per_game,bangforbuck in results:
+    for player,salary,points_per_game,totalpoints,bangforbuck in results:
         bangforbuck_dict = {}
         bangforbuck_dict["player"]=player
         bangforbuck_dict["salary"] = float(salary)
         bangforbuck_dict["points_per_game"] = float(points_per_game)
+        bangforbuck_dict["totalpoints"] = float(totalpoints)
         bangforbuck_dict["bangforbuck"] = float(bangforbuck)
         print(bangforbuck_dict)
         bangforbuck_list.append(bangforbuck_dict)
