@@ -126,12 +126,15 @@ function updateToolTip(chosenXAxis, chosenYAxis, circlesGroup, circleText) {
     // }
 
     var yLabel;
+    var value_variable;
 
     if (chosenYAxis === "points_per_game") {
         yLabel = "Points per Game:" ;
+        value_variable="points_per_game";
     }
     else {
-        yLabel = "Money Spent For Each Point Scored";
+        yLabel = "Money Spent For Each Point Scored:";
+        value_variable="bangforbuck";
     }
 
     // var toolTip = d3.tip()
@@ -142,37 +145,37 @@ function updateToolTip(chosenXAxis, chosenYAxis, circlesGroup, circleText) {
     //     });
 
     // // Circles tooltip in chart
-    var toolTip2 = toolTip.html(function (d) {
-        return (`${d.player}<br>${xLabel} ${d[chosenXAxis]}<br>${yLabel} ${d['points_per_game']}`);
+    toolTip2 = toolTip.html(function (d) {
+        return (`${d.player}<br>${xLabel} ${d[chosenXAxis]}<br>${yLabel} ${d[value_variable]}`);
     });
-  circlesGroup.call(toolTip2);
+  //circlesGroup.call(toolTip2);
     // svg.call(toolTip);
     // var toolTip2 = toolTip.html(function (d) {
     //     return (`${d.player}<br>${xLabel} ${d[chosenXAxis]}<br>${yLabel} ${d['points_per_game']}`);
     // });
 
-    circlesGroup.on("mouseover", function (stats) {
-        toolTip2.show(stats, this);
-    })
-        // .on(mouseout) event
-        .on("mouseout", function (stats, index) {
-            toolTip2.hide(stats);
-        });
+    // circlesGroup.on("mouseover", function (stats) {
+    //     toolTip2.show(stats, this);
+    // })
+    //     // .on(mouseout) event
+    //     .on("mouseout", function (stats, index) {
+    //         toolTip2.hide(stats);
+    //     });
 
     // Text tooltip in chart
-    circleText.call(toolTip2);
+    // circleText.call(toolTip2);
 
-    circleText.on("mouseover", function (stats) {
-        toolTip2.show(stats, this);
-    })
-        // .on(mouseout) event
-        .on("mouseout", function (stats, index) {
-            toolTip2.hide(stats);
-        });
+    // circleText.on("mouseover", function (stats) {
+    //     toolTip2.show(stats, this);
+    // })
+    //     // .on(mouseout) event
+    //     .on("mouseout", function (stats, index) {
+    //         toolTip2.hide(stats);
+    //     });
 
-    return circlesGroup;
+   // return circlesGroup;
 }
-
+var toolTip2; 
 // Text tooltip in chart
 // Retrieve data from postgreSQL and execute everything below
 // d3.json("http://127.0.0.1:5000/api/v1.0/bangforbuck").then(function (NBAData, err) {
@@ -218,7 +221,15 @@ d3.json("http://127.0.0.1:5000/api/v1.0/bangforbuck").then(function (NBAData, er
         .attr("cx", d => xLinearScale(d[chosenXAxis]))
         .attr("cy", d => yLinearScale(d[chosenYAxis]))
         .attr("r", 15)
-        .attr("opacity", ".75");
+        .attr("fill", "dark blue")
+        .attr("opacity", ".75")
+        .on("mouseover", function (stats) {
+            toolTip2.show(stats, this);
+        })
+            // .on(mouseout) event
+        .on("mouseout", function (stats, index) {
+            toolTip2.hide(stats);
+            });
 
     // Create a group for the text in circles
     var circleText = chartGroup.selectAll(".playerText")
@@ -269,7 +280,7 @@ d3.json("http://127.0.0.1:5000/api/v1.0/bangforbuck").then(function (NBAData, er
         .text("Money Spent For Each Point Scored");
 
     // updateToolTip function above csv import
-    var circlesGroup = updateToolTip(chosenXAxis, chosenYAxis, circlesGroup, circleText);
+    updateToolTip(chosenXAxis, chosenYAxis, circlesGroup, circleText);
 
     // X axis labels event listener
     xLabelsGroup.selectAll("text")
@@ -295,7 +306,7 @@ d3.json("http://127.0.0.1:5000/api/v1.0/bangforbuck").then(function (NBAData, er
                 circleText = renderText(circleText, xLinearScale, chosenXAxis, yLinearScale, chosenYAxis);
 
                 // Update tooltips with new info
-                circlesGroup = updateToolTip(chosenXAxis, chosenYAxis, circlesGroup, circleText);
+                updateToolTip(chosenXAxis, chosenYAxis, circlesGroup, circleText);
 
                 // Changes classes to change bold text for x axis
                 if (chosenXAxis === "salary") {
@@ -335,62 +346,63 @@ d3.json("http://127.0.0.1:5000/api/v1.0/bangforbuck").then(function (NBAData, er
                 circleText = renderText(circleText, xLinearScale, chosenXAxis, yLinearScale, chosenYAxis);
 
                 // Update tooltips with new info
-                circlesGroup = updateToolTip(chosenXAxis, circlesGroup, chosenYAxis, circleText);
+                updateToolTip(chosenXAxis, circlesGroup, chosenYAxis, circleText);
 
                 // Changes classes to change bold text for y axis
-                // if (chosenYAxis === "points_per_game") {
-                //     pointsPerGameLabel
-                //         .classed("active", true)
-                //         .classed("inactive", false);
-                //     bangForBuckLabel
-                //         .classed("active", false)
-                //         .classed("inactive", true);
-                // }
-                // else {
+                if (chosenYAxis === "points_per_game") {
+                    pointsPerGameLabel
+                        .classed("active", true)
+                        .classed("inactive", false);
+                    bangForBuckLabel
+                        .classed("active", false)
+                        .classed("inactive", true);
+                }
+                else {
                     pointsPerGameLabel
                         .classed("active", false)
                         .classed("inactive", true);
                     bangForBuckLabel
                         .classed("active", true)
                         .classed("inactive", false);
-                // }
+                }
             }
-            else{
-                //Updates y scale for new data
-                yLinearScale = yScale(NBAData, chosenYAxis);
+        //     else{
+        //         //Updates y scale for new data
+        //         yLinearScale = yScale(NBAData, chosenYAxis);
 
-                // Update y axis with transition
-                yAxis = renderYAxes(yLinearScale, yAxis);
+        //         // Update y axis with transition
+        //         yAxis = renderYAxes(yLinearScale, yAxis);
 
-                // Update circles with new x values
-                circlesGroup = renderCircles(circlesGroup, xLinearScale, chosenXAxis, yLinearScale, chosenYAxis);
+        //         // Update circles with new x values
+        //         circlesGroup = renderCircles(circlesGroup, xLinearScale, chosenXAxis, yLinearScale, chosenYAxis);
 
-                // Update text with new values
-                circleText = renderText(circleText, xLinearScale, chosenXAxis, yLinearScale, chosenYAxis);
+        //         // Update text with new values
+        //         circleText = renderText(circleText, xLinearScale, chosenXAxis, yLinearScale, chosenYAxis);
 
-                // Update tooltips with new info
-                circlesGroup = updateToolTip(chosenXAxis, circlesGroup, chosenYAxis, circleText);
+        //         // Update tooltips with new info
+        //         circlesGroup = updateToolTip(chosenXAxis, circlesGroup, chosenYAxis, circleText);
 
-                // Changes classes to change bold text for y axis
-                 //chosenYAxis === "points_per_game" {
-                    pointsPerGameLabel
-                        .classed("active", true)
-                        .classed("inactive", false);
-                    bangForBuckLabel
-                        .classed("active", false)
-                        .classed("inactive", true);
-                //}
-            //     else {
-            //         pointsPerGameLabel
-            //             .classed("active", false)
-            //             .classed("inactive", true);
-            //         bangForBuckLabel
-            //             .classed("active", true)
-            //             .classed("inactive", false);
-            //     }
-            // }
+        //         // Changes classes to change bold text for y axis
+        //          //chosenYAxis === "points_per_game" {
+        //             pointsPerGameLabel
+        //                 .classed("active", true)
+        //                 .classed("inactive", false);
+        //             bangForBuckLabel
+        //                 .classed("active", false)
+        //                 .classed("inactive", true);
+        //         //}
+        //     //     else {
+        //     //         pointsPerGameLabel
+        //     //             .classed("active", false)
+        //     //             .classed("inactive", true);
+        //     //         bangForBuckLabel
+        //     //             .classed("active", true)
+        //     //             .classed("inactive", false);
+        //     //     }
+        //     // }
             
-        }});//);
+        // }
+    });//);
 }).catch(function (error) {
     console.log(error);
 });
