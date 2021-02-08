@@ -1,6 +1,6 @@
 /* Navigation Bar */
 .navigation .navbar-brand {
-    color: white;
+    color: #e71111;
     margin-left: 0px;
     font-weight: bold;
     font-family: Georgia, 'Times New Roman', Times, serif;
@@ -24,20 +24,21 @@
     font-weight: lighter;
   }
 
-  .dropdown .dropdown-menu {
+.dropdown .dropdown-menu {
     background-color: #EDF3F2;
   }
 
-  .dropdown-item {
+.dropdown-item {
       color: #686D6C;
   }
 
-  .nav-link {
+.nav-link {
     color: #686D6C;
   }
-  .title {
+  
+.title {
       font-size: 40px;
-      color: #4F85A7;
+      color: #e71111;
       font-weight: bold;
       font: Georgia;
       padding-top: 10px;
@@ -68,19 +69,33 @@ body {
     padding-bottom: 80px;
 }
 
+/* Boxes */
+.box {
+    margin-top: 50px;
+    margin-bottom: 60px;
+    padding: 10px 30px 10px;
+    background-color: white;
+}
+
+/* Footer */
 #footer {
-    position: absolute;
+    background-color: #1f14b3;
+    border-top-style: solid;
+    border-top-width: 5px;
+    border-top-color: #e71111;
+    color: white;
+    min-height: 60px;
+    font-family: Georgia, Times, "Times New Roman", serif;
+    font-size: 12px;
+    text-align: center;
+    position: fixed;
+    left: 0;
     bottom: 0;
     width: 100%;
-    /* Set the fixed height of the footer here */
-    height: 10px;
-    padding-top: 20px;
-    padding-bottom: 40px;
-    text-align: center;
-    background-color: #F5F5F5;
+    padding-top: 15px;
 }
 
 #footer p {
     margin: 0;
     font-size: 16px;
-
+}
