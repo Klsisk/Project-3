@@ -44,6 +44,9 @@ def welcome():
 def psvt():
     return render_template( "player_salaries_vs_teams.html")
     
+@app.route("/taa", methods = ['GET', 'POST'])
+def taa():
+    return render_template( "teams_and_allstars.html")
 
 @app.route("/api/v1.0/teamsalary")
 def teamsalary():
