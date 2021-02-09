@@ -3,7 +3,7 @@ import sqlalchemy
 from sqlalchemy.ext.automap import automap_base
 from sqlalchemy.orm import Session
 from sqlalchemy import create_engine, func
-from flask import Flask, jsonify, request, render_template
+from flask import Flask, jsonify, render_template, redirect, url_for, request
 #from Resources.config import sql_pass
 from Resources.config2 import sql_pass
 import os
@@ -20,13 +20,11 @@ Base = automap_base()
 # Reflect the tables
 Base.prepare(engine, reflect=True)
 
-CHARTS = os.path.join('assets')
 
 #################################################
 # Flask Setup
 #################################################
 app = Flask(__name__)
-app.config['UPLOAD_FOLDER'] = CHARTS
 #################################################
 # Flask Routes
 #################################################
@@ -42,10 +40,9 @@ def welcome():
     # )
     return render_template( "index.html")
 
-@app.route("/psvt", methods = ['GET'])
+@app.route("/psvt", methods = ['GET', 'POST'])
 def psvt():
-    path_to_file = os.path.join(app.config['UPLOAD_FOLDER'], 'chart1.png')
-    return render_template( "player_salaries_vs_teams.html", chart_img=path_to_file)
+    return render_template( "player_salaries_vs_teams.html")
     
 
 @app.route("/api/v1.0/teamsalary")
