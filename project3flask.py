@@ -4,10 +4,12 @@ from sqlalchemy.ext.automap import automap_base
 from sqlalchemy.orm import Session
 from sqlalchemy import create_engine, func
 from flask import Flask, jsonify, request, render_template
+#from Resources.config import sql_pass
+from Resources.config2 import sql_pass
 #################################################
 # Database Setup
 #################################################
-engine = create_engine('postgresql://postgres:kkhpjk00@localhost/NBA')
+engine = create_engine(f'postgresql://postgres:{sql_pass}@localhost/NBA')
 conn=engine.connect()
 print(conn.execute("SELECT * from salary"))
 
@@ -34,11 +36,11 @@ def welcome():
     #     f"/api/v1.0/resultstosalary<br/>"
     #     f"/api/v1.0/bangforbuck"
     # )
-    return render_template("index.html")
+    return render_template( "index.html")
     
 @app.route("/api/v1.0/teamsalary")
 def teamsalary():
-    engine = create_engine('postgresql://postgres:kkhpjk00@localhost/NBA')
+    engine = create_engine(f'postgresql://postgres:{sql_pass}@localhost/NBA')
     conn=engine.connect()
     query2="""
     SELECT team, sum(salary) as "Total Salary Paid"
@@ -57,7 +59,7 @@ def teamsalary():
 @app.route("/api/v1.0/salary")
 def salary():
     all_salary = []
-    engine = create_engine('postgresql://postgres:kkhpjk00@localhost/NBA')
+    engine = create_engine(f'postgresql://postgres:{sql_pass}@localhost/NBA')
     conn=engine.connect()
     query="""
     SELECT player, team, sum(salary)
@@ -76,7 +78,7 @@ def salary():
 @app.route("/api/v1.0/resultstosalary")
 def resultstosalary():
     resultstosalary = []
-    engine = create_engine('postgresql://postgres:kkhpjk00@localhost/NBA')
+    engine = create_engine(f'postgresql://postgres:{sql_pass}@localhost/NBA')
     conn=engine.connect()
     query3="""
     SELECT  s.team, t.win, t.loss, sum(s.salary)
@@ -98,7 +100,7 @@ def resultstosalary():
 @app.route("/api/v1.0/bangforbuck")
 def bangforbuck():
     bangforbuck_list = []
-    engine = create_engine('postgresql://postgres:kkhpjk00@localhost/NBA')
+    engine = create_engine(f'postgresql://postgres:{sql_pass}@localhost/NBA')
     conn=engine.connect()
     query4="""
 
