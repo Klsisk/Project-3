@@ -4,8 +4,7 @@ from sqlalchemy.ext.automap import automap_base
 from sqlalchemy.orm import Session
 from sqlalchemy import create_engine, func
 from flask import Flask, jsonify, render_template, redirect, url_for, request
-#from Resources.config import sql_pass
-from Resources.config2 import sql_pass
+from Resources.config import sql_pass
 import os
 #################################################
 # Database Setup
