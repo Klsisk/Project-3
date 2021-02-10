@@ -29,7 +29,7 @@ app = Flask(__name__)
 # Flask Routes
 #################################################
 @app.route("/")
-def welcome():
+def index():
     """List all available api routes."""
     # return (
     #     f"Available Routes:<br/>"
