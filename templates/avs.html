@@ -29,27 +29,33 @@
                     </a>
                     <div class="dropdown-menu">
                         <a class="dropdown-item" href="/psvt">Player Salaries vs Teams</a>
-                        <a class="dropdown-item" href="/taa">Top Teams and Allstars Graph</a>                           
+                        <a class="dropdown-item" href="/taa">Top Teams and Allstars Graph</a>
+                        <a class="dropdown-item" href="/avs">Age Vs Salary Graph</a>                         
                     </div>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="Data.html">Data</a>
                 </li>
             </ul>
         </div>
     </nav>
 </div>
 <!-- Content -->
-<div class="container">
-    <div class="row">
-        <div class="box">
-            <div class="page-header">
-                <h1 class="title">Data</h1>
-                <hr>
-                <p class="category">The following table contains the data used for plotting during this project.</p>
-            </div>
-
-
+<div class="content">
+  <div class="container-fluid">
+      <div class="row">
+          <div class="col-lg-7 col-md-12">
+              <!-- Explanation Box -->
+              <div class="box">
+                  <h1 class="title">Age Vs Salary</h1>
+                  <hr>
+                  <img src="{{url_for('static', 
+                  filename='chart3.png')}}" 
+                  align="middle"/>
+                  <p style="font-size:160%;">The data above shows the teams data on . 
+                  </p>
+              </div>
+          </div>
+      </div>
+  </div>            
+</div>
 <!-- Footer-->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>

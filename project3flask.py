@@ -47,6 +47,10 @@ def psvt():
 def taa():
     return render_template( "teams_and_allstars.html")
 
+@app.route("/avs", methods = ['GET', 'POST'])
+def avs():
+    return render_template( "avs.html")
+
 @app.route("/api/v1.0/teamsalary")
 def teamsalary():
     engine = create_engine(f'postgresql://postgres:{sql_pass}@localhost/NBA')

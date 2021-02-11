@@ -24,12 +24,12 @@
     font-weight: lighter;
   }
 
-.dropdown .dropdown-menu {
+.dropdown-menu {
     background-color: #EDF3F2;
   }
 
 .dropdown-item {
-      color: #1f14b3;
+      color: red;
   }
 
 .nav-link {
