@@ -74,9 +74,19 @@ body {
 .box {
     margin-top: 10px;
     margin-bottom: 100px;
-    padding: 10px 30px 10px;
     background-color: white;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    display:block;
+    
 }
+
+.aligncenter {
+    text-align: center;
+}
+
+
 
 /* Footer */
 #footer {
